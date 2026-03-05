@@ -1,0 +1,9 @@
+---
+title: OSINT Research Practicum Project Analyzing Chinese PLA Food Security as Possible Indicator of War in Taiwan
+description: Analysis of Food Security Measures Undertaken by the PLA Using Open Source Intelligence Collection Methods, 
+Remote Sensing Data, and CNN.
+github: https://github.com/JoelElijahManwill/China-OSINT-Practicum-Military-Food-Security-Analysis
+---
+
+This project analyzes Net Primary Productivity change over time using Sentinel-2 imagery and NDVI calculations in Google Earth Engine and 
+an analysis of movement of food products to PLA Logistics Facilities using Planet Labs imagery and a convolutional neural network.
