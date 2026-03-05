@@ -1,0 +1,7 @@
+---
+title: Water and Vegetation Health in China's Dongbei Region
+description: A Look at How the Amount of Water in an Area Affects the Overall Vegetation Health (Measured with NDVI) of that Area. Monitored at a Large Scale
+github: https://github.com/JoelElijahManwill/Water-and-Vegetation-Health-in-China-s-Dongbei-Region
+---
+
+This project analyzes vegetation health using Landsat imagery and NDVI calculations in Google Earth Engine and ArcGIS Pro.
