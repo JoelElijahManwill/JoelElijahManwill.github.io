@@ -2,16 +2,11 @@
 
 ## My GIS and Remote Sensing Projects
 
-- [Project One](_projects/OSINT Practicum Military Food Security)
-<h3><a href="[https://github.com/JoelElijahManwill/project-one](https://github.com/JoelElijahManwill/China-OSINT-Practicum-Military-Food-Security-Analysis)">Project One</a></h3>
-<p>View the full repository on GitHub</p>
+- [OSINT Practicum Military Food Security](https://github.com/JoelElijahManwill/China-OSINT-Practicum-Military-Food-Security-Analysis)
 
-- [Project Two](_projects/ACCESS Bicycle Comfortability)
+- [ACCESS Bicycle Comfortability](https://github.com/JoelElijahManwill/ACCESS-Bicycle-Comfortability)
 
-- [Project Three](_projects/Water and Vegetation Health in China's Dongbei Region)
+- [Water and Vegetation Health in China's Dongbei Region](https://github.com/JoelElijahManwill/Water-Vegetation-Health-Dongbei-China)
 
-- [Project Four](_projects/Maritime Pirate Attacks Using Geospatial Analysis in R)
-
-
-
+- [Maritime Pirate Attacks Using Geospatial Analysis in R](https://github.com/JoelElijahManwill/Maritime-Pirate-Attacks-Geospatial-Analysis)
 
