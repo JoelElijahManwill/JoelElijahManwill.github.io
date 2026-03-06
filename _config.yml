@@ -6,3 +6,4 @@ description: Welcome to my Portfolio!
 collections:
   projects:
     output: true
+    permalink: /projects/:path/
