@@ -8,6 +8,8 @@
 
 - [ACCESS Bicycle Comfortability](https://github.com/JoelElijahManwill/ACCESS-Bicycle-Comfortability)
 
+![ACCESS Bicycle Project](images/ACCESS_bike.png)
+
 - [Water and Vegetation Health in China's Dongbei Region](https://github.com/JoelElijahManwill/Water-Vegetation-Health-Dongbei-China)
 
 ![Water and Vegetation in Dongbei Region Project](images/storymap_qr_code.png)
