@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Joel Elijah Manwill | GIS & Remote Sensing Portfolio</title>
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --surface2: #21262d;
+      --border: #30363d; --accent: #3fb950; --accent2: #58a6ff;
+      --text: #e6edf3; --muted: #8b949e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .logo { font-size: 1rem; font-weight: 600; } .logo span { color: var(--accent); }
+    nav a { color: var(--muted); text-decoration: none; font-size: .875rem; margin-left: 1.5rem; }
+    nav a:hover { color: var(--text); }
+    .hero { background: linear-gradient(160deg,#0d1117,#0f1f2e 50%,#0d1117); padding: 5rem 2rem 4rem; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(63,185,80,.12); border: 1px solid rgba(63,185,80,.3); border-radius: 99px; padding: .3rem .9rem; font-size: .78rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: .05em; }
+    .dot { width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(63,185,80,.25); display:inline-block; }
+    .hero h1 { font-size: clamp(2rem,5vw,3.2rem); font-weight: 700; margin-bottom: .75rem; }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 500px; margin: 0 auto 2rem; }
+    .hero-links { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1.3rem; border-radius: 6px; font-size: .9rem; font-weight: 500; text-decoration: none; transition: all .2s; }
+    .btn-primary { background: var(--accent); color: #0d1117; } .btn-primary:hover { background: #56d364; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); } .btn-outline:hover { background: var(--surface2); }
+    .section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 2rem; }
+    .section-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 2rem; }
+    .section-header h2 { font-size: 1.3rem; font-weight: 600; }
+    .section-header .line { flex: 1; height: 1px; background: var(--border); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.25rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s,border-color .2s,box-shadow .2s; text-decoration: none; color: inherit; }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent2); box-shadow: 0 8px 30px rgba(0,0,0,.4); }
+    .card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--surface2); display: block; }
+    .card-placeholder { width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,var(--surface2),#1a2030); display:flex; align-items:center; justify-content:center; opacity:.25; font-size:2rem; }
+    .card-body { padding: 1.1rem 1.2rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
+    .card-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: .4rem; font-weight: 600; }
+    .card-title { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; line-height: 1.4; }
+    .card-desc { font-size: .85rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; font-size: .8rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: .8rem; margin-top: auto; }
+    .card:hover .arrow { transform: translateX(3px); } .arrow { transition: transform .2s; color: var(--accent2); }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: .35rem .9rem; font-size: .82rem; color: var(--muted); }
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: .83rem; }
+    footer a { color: var(--accent2); text-decoration: none; }
+    @media(max-width:600px){.hero{padding:3rem 1.5rem 2.5rem}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="logo">Joel Elijah <span>Manwill</span></span>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="https://github.com/JoelElijahManwill" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> GIS &amp; Remote Sensing</div>
+  <h1>Joel Elijah Manwill</h1>
+  <p>Geospatial analyst specializing in remote sensing, OSINT, and spatial data science.</p>
+  <div class="hero-links">
+    <a class="btn btn-primary" href="#projects">View Projects</a>
+    <a class="btn btn-outline" href="https://github.com/JoelElijahManwill" target="_blank">GitHub Profile</a>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-header"><h2>Projects</h2><div class="line"></div></div>
+  <div class="grid">
+
+    <a class="card" href="https://github.com/JoelElijahManwill/China-OSINT-Practicum-Military-Food-Security-Analysis" target="_blank">
+      <img class="card-img" src="images/OSINT_final_poster.png" alt="OSINT" onerror="this.outerHTML='<div class=card-placeholder>🗺️</div>'">
+      <div class="card-body">
+        <div class="card-tag">OSINT · Security Analysis</div>
+        <div class="card-title">China OSINT Practicum — Military Food Security</div>
+        <div class="card-desc">Open-source intelligence analysis examining food security implications for China's military using geospatial data and satellite imagery.</div>
+        <div class="card-footer"><span>GitHub</span><span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="https://github.com/JoelElijahManwill/ACCESS-Bicycle-Comfortability" target="_blank">
+      <img class="card-img" src="images/ACCESS_bike.png" alt="ACCESS Bicycle" onerror="this.outerHTML='<div class=card-placeholder>🚲</div>'">
+      <div class="card-body">
+        <div class="card-tag">Urban GIS · Accessibility</div>
+        <div class="card-title">ACCESS Bicycle Comfortability</div>
+        <div class="card-desc">Spatial analysis of bicycle infrastructure comfortability and accessibility supporting equitable urban mobility planning.</div>
+        <div class="card-footer"><span>GitHub</span><span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="https://arcg.is/1jfKH93" target="_blank">
+      <img class="card-img" src="images/dongbei_landsat_tile.png" alt="Dongbei" onerror="this.outerHTML='<div class=card-placeholder>🛰️</div>'">
+      <div class="card-body">
+        <div class="card-tag">Remote Sensing · Landsat</div>
+        <div class="card-title">Water &amp; Vegetation Health — Dongbei Region, China</div>
+        <div class="card-desc">Landsat-based analysis of water bodies and vegetation health indices across China's Dongbei region, published as an ArcGIS StoryMap.</div>
+        <div class="card-footer"><span>ArcGIS StoryMap</span><span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="card" href="https://github.com/JoelElijahManwill/Maritime-Pirate-Attacks-Geospatial-Analysis" target="_blank">
+      <div class="card-placeholder">⚓</div>
+      <div class="card-body">
+        <div class="card-tag">Spatial Analysis · R</div>
+        <div class="card-title">Maritime Pirate Attacks — Geospatial Analysis in R</div>
+        <div class="card-desc">Statistical and spatial analysis of maritime piracy incident data in R, identifying global hotspots and temporal attack patterns.</div>
+        <div class="card-footer"><span>GitHub</span><span class="arrow">→</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="section" id="skills" style="padding-top:0">
+  <div class="section-header"><h2>Skills &amp; Tools</h2><div class="line"></div></div>
+  <div class="skills-grid">
+    <span class="pill">ArcGIS Pro</span><span class="pill">ArcGIS StoryMaps</span>
+    <span class="pill">QGIS</span><span class="pill">Remote Sensing</span>
+    <span class="pill">Landsat Imagery</span><span class="pill">OSINT</span>
+    <span class="pill">R (Spatial Analysis)</span><span class="pill">Python / GeoPandas</span>
+    <span class="pill">Spatial Statistics</span><span class="pill">Cartography</span>
+    <span class="pill">GPS / Field Data</span><span class="pill">GitHub Pages</span>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Joel Elijah Manwill &nbsp;·&nbsp; <a href="https://github.com/JoelElijahManwill">GitHub</a></p>
+</footer>
+</body>
+</html>
