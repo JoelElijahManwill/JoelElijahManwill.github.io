@@ -11,96 +11,182 @@
       --text: #e6edf3; --muted: #8b949e;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* ── Header ── */
     header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 2rem; position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .logo { font-size: 1rem; font-weight: 600; } .logo span { color: var(--accent); }
-    nav a { color: var(--muted); text-decoration: none; font-size: .875rem; margin-left: 1.5rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .875rem; margin-left: 1.5rem; transition: color .2s; }
     nav a:hover { color: var(--text); }
-    .hero { background: linear-gradient(160deg,#0d1117,#0f1f2e 50%,#0d1117); padding: 5rem 2rem 4rem; text-align: center; }
+
+    /* ── Hero ── */
+    .hero { background: linear-gradient(160deg,#0d1117,#0f1f2e 50%,#0d1117); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 40% at 50% 0%,rgba(63,185,80,.08),transparent 70%),radial-gradient(ellipse 40% 30% at 80% 80%,rgba(88,166,255,.07),transparent 60%); pointer-events:none; }
     .hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(63,185,80,.12); border: 1px solid rgba(63,185,80,.3); border-radius: 99px; padding: .3rem .9rem; font-size: .78rem; color: var(--accent); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: .05em; }
     .dot { width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(63,185,80,.25); display:inline-block; }
-    .hero h1 { font-size: clamp(2rem,5vw,3.2rem); font-weight: 700; margin-bottom: .75rem; }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 500px; margin: 0 auto 2rem; }
+    .hero h1 { font-size: clamp(2rem,5vw,3.2rem); font-weight: 700; letter-spacing: -.02em; margin-bottom: .75rem; }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 560px; margin: 0 auto 2rem; }
     .hero-links { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
     .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1.3rem; border-radius: 6px; font-size: .9rem; font-weight: 500; text-decoration: none; transition: all .2s; }
-    .btn-primary { background: var(--accent); color: #0d1117; } .btn-primary:hover { background: #56d364; }
+    .btn-primary { background: var(--accent); color: #0d1117; } .btn-primary:hover { background: #56d364; transform: translateY(-1px); }
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); } .btn-outline:hover { background: var(--surface2); }
+
+    /* ── Section ── */
     .section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 2rem; }
     .section-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 2rem; }
-    .section-header h2 { font-size: 1.3rem; font-weight: 600; }
+    .section-header h2 { font-size: 1.3rem; font-weight: 600; white-space: nowrap; }
     .section-header .line { flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Project Grid ── */
     .grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); gap: 1.25rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s,border-color .2s,box-shadow .2s; text-decoration: none; color: inherit; }
     .card:hover { transform: translateY(-3px); border-color: var(--accent2); box-shadow: 0 8px 30px rgba(0,0,0,.4); }
     .card-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--surface2); display: block; }
-    .card-placeholder { width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,var(--surface2),#1a2030); display:flex; align-items:center; justify-content:center; opacity:.25; font-size:2rem; }
+    .card-placeholder { width:100%; aspect-ratio:16/9; background:linear-gradient(135deg,var(--surface2),#1a2030); display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
     .card-body { padding: 1.1rem 1.2rem 1.3rem; flex: 1; display: flex; flex-direction: column; }
     .card-tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: .4rem; font-weight: 600; }
     .card-title { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; line-height: 1.4; }
     .card-desc { font-size: .85rem; color: var(--muted); flex: 1; margin-bottom: 1rem; }
     .card-footer { display: flex; align-items: center; justify-content: space-between; font-size: .8rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: .8rem; margin-top: auto; }
-    .card:hover .arrow { transform: translateX(3px); } .arrow { transition: transform .2s; color: var(--accent2); }
+    .arrow { transition: transform .2s; color: var(--accent2); } .card:hover .arrow { transform: translateX(3px); }
+
+    /* ── Skills ── */
     .skills-grid { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: .35rem .9rem; font-size: .82rem; color: var(--muted); }
-    footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: .83rem; }
+    .pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: .35rem .9rem; font-size: .82rem; color: var(--muted); transition: all .2s; }
+    .pill:hover { color: var(--text); border-color: var(--accent); background: rgba(63,185,80,.08); }
+
+    /* ── Resume ── */
+    .resume-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+
+    /* Toggle bar */
+    .resume-toggle { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; cursor: pointer; user-select: none; transition: background .2s; }
+    .resume-toggle:hover { background: var(--surface2); }
+    .resume-toggle-left { display: flex; align-items: center; gap: .75rem; }
+    .resume-toggle-left h3 { font-size: 1rem; font-weight: 600; }
+    .resume-toggle-left .badge { background: rgba(63,185,80,.12); border: 1px solid rgba(63,185,80,.3); color: var(--accent); font-size: .7rem; padding: .2rem .6rem; border-radius: 99px; text-transform: uppercase; letter-spacing: .05em; }
+    .chevron { color: var(--muted); transition: transform .3s; font-size: 1rem; }
+    .resume-body { display: none; border-top: 1px solid var(--border); }
+    .resume-body.open { display: block; }
+    .chevron.open { transform: rotate(180deg); }
+
+    /* Resume layout */
+    .resume-inner { padding: 2rem 2rem 2.5rem; display: grid; grid-template-columns: 1fr 320px; gap: 2.5rem; }
+    @media(max-width:780px){ .resume-inner { grid-template-columns: 1fr; } }
+
+    .resume-name { font-size: 1.6rem; font-weight: 700; letter-spacing: -.01em; margin-bottom: .25rem; }
+    .resume-contact { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: .4rem .75rem; }
+    .resume-contact a { color: var(--accent2); text-decoration: none; }
+    .resume-contact a:hover { text-decoration: underline; }
+
+    .resume-section { margin-bottom: 1.8rem; }
+    .resume-section:last-child { margin-bottom: 0; }
+    .resume-section-title { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 700; margin-bottom: .85rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+
+    .resume-summary { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+
+    /* Job entries */
+    .job { margin-bottom: 1.4rem; }
+    .job:last-child { margin-bottom: 0; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; margin-bottom: .2rem; }
+    .job-title { font-size: .92rem; font-weight: 600; color: var(--text); }
+    .job-date { font-size: .78rem; color: var(--muted); white-space: nowrap; }
+    .job-org { font-size: .82rem; color: var(--accent2); margin-bottom: .4rem; }
+    .job-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+    /* Sidebar */
+    .resume-sidebar {}
+    .resume-clearance { background: rgba(63,185,80,.08); border: 1px solid rgba(63,185,80,.25); border-radius: 8px; padding: .9rem 1rem; margin-bottom: 1.5rem; }
+    .resume-clearance .cl-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 700; margin-bottom: .3rem; }
+    .resume-clearance .cl-value { font-size: .88rem; font-weight: 600; color: var(--text); }
+    .resume-clearance .cl-date { font-size: .78rem; color: var(--muted); margin-top: .15rem; }
+
+    /* Skills sidebar */
+    .sidebar-section { margin-bottom: 1.5rem; }
+    .sidebar-section:last-child { margin-bottom: 0; }
+    .sidebar-title { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 700; margin-bottom: .7rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+    .sidebar-pills { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .sidebar-pill { background: var(--surface2); border: 1px solid var(--border); border-radius: 99px; padding: .25rem .75rem; font-size: .78rem; color: var(--muted); }
+
+    /* Education */
+    .edu-degree { font-size: .92rem; font-weight: 600; }
+    .edu-school { font-size: .83rem; color: var(--accent2); margin: .15rem 0; }
+    .edu-detail { font-size: .8rem; color: var(--muted); line-height: 1.55; }
+
+    /* Projects in resume */
+    .project-item { margin-bottom: 1rem; }
+    .project-item:last-child { margin-bottom: 0; }
+    .project-item-title { font-size: .88rem; font-weight: 600; color: var(--text); margin-bottom: .2rem; }
+    .project-item-desc { font-size: .81rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--border); text-align: center; padding: 2rem; color: var(--muted); font-size: .83rem; margin-top: 1rem; }
     footer a { color: var(--accent2); text-decoration: none; }
-    @media(max-width:600px){.hero{padding:3rem 1.5rem 2.5rem}.grid{grid-template-columns:1fr}}
+
+    @media(max-width:600px){ .hero{padding:3rem 1.5rem 2.5rem} .grid{grid-template-columns:1fr} .section{padding:2.5rem 1.25rem} }
   </style>
 </head>
 <body>
 
+<!-- ── Header ── -->
 <header>
   <div class="header-inner">
     <span class="logo">Joel Elijah <span>Manwill</span></span>
     <nav>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
       <a href="https://github.com/JoelElijahManwill" target="_blank">GitHub</a>
     </nav>
   </div>
 </header>
 
+<!-- ── Hero ── -->
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span> GIS &amp; Remote Sensing</div>
   <h1>Joel Elijah Manwill</h1>
-  <p>Geospatial analyst specializing in remote sensing, OSINT, and spatial data science.</p>
+  <p>Geospatial analyst specializing in remote sensing, OSINT, and spatial data science. TS Eligible · USU Geography · NGA Intern Selectee.</p>
   <div class="hero-links">
     <a class="btn btn-primary" href="#projects">View Projects</a>
-    <a class="btn btn-outline" href="https://github.com/JoelElijahManwill" target="_blank">GitHub Profile</a>
+    <a class="btn btn-outline" href="#resume">Resume</a>
+    <a class="btn btn-outline" href="https://github.com/JoelElijahManwill" target="_blank">GitHub</a>
   </div>
 </section>
 
+<!-- ── Projects ── -->
 <section class="section" id="projects">
   <div class="section-header"><h2>Projects</h2><div class="line"></div></div>
   <div class="grid">
 
     <a class="card" href="https://github.com/JoelElijahManwill/China-OSINT-Practicum-Military-Food-Security-Analysis" target="_blank">
-      <img class="card-img" src="images/OSINT_final_poster.png" alt="OSINT" onerror="this.outerHTML='<div class=card-placeholder>🗺️</div>'">
+      <img class="card-img" src="images/OSINT_final_poster.png" alt="OSINT Military Food Security"
+           onerror="this.outerHTML='<div class=card-placeholder>🗺️</div>'">
       <div class="card-body">
         <div class="card-tag">OSINT · Security Analysis</div>
         <div class="card-title">China OSINT Practicum — Military Food Security</div>
-        <div class="card-desc">Open-source intelligence analysis examining food security implications for China's military using geospatial data and satellite imagery.</div>
+        <div class="card-desc">Open-source intelligence analysis examining food security indicators as potential signals of Taiwan invasion preparation. Presented to Army OSINT officials and the Center for Anticipatory Intelligence Research Symposium.</div>
         <div class="card-footer"><span>GitHub</span><span class="arrow">→</span></div>
       </div>
     </a>
 
     <a class="card" href="https://github.com/JoelElijahManwill/ACCESS-Bicycle-Comfortability" target="_blank">
-      <img class="card-img" src="images/ACCESS_bike.png" alt="ACCESS Bicycle" onerror="this.outerHTML='<div class=card-placeholder>🚲</div>'">
+      <img class="card-img" src="images/ACCESS_bike.png" alt="ACCESS Bicycle Comfortability"
+           onerror="this.outerHTML='<div class=card-placeholder>🚲</div>'">
       <div class="card-body">
         <div class="card-tag">Urban GIS · Accessibility</div>
         <div class="card-title">ACCESS Bicycle Comfortability</div>
-        <div class="card-desc">Spatial analysis of bicycle infrastructure comfortability and accessibility supporting equitable urban mobility planning.</div>
+        <div class="card-desc">Spatial analysis tool assessing bicycle infrastructure comfort and accessibility using local GIS layers. Presented at the Utah Geographic Information Council Annual Meeting (May 2025).</div>
         <div class="card-footer"><span>GitHub</span><span class="arrow">→</span></div>
       </div>
     </a>
 
     <a class="card" href="https://arcg.is/1jfKH93" target="_blank">
-      <img class="card-img" src="images/dongbei_landsat_tile.png" alt="Dongbei" onerror="this.outerHTML='<div class=card-placeholder>🛰️</div>'">
+      <img class="card-img" src="images/dongbei_landsat_tile.png" alt="Dongbei Water and Vegetation"
+           onerror="this.outerHTML='<div class=card-placeholder>🛰️</div>'">
       <div class="card-body">
         <div class="card-tag">Remote Sensing · Landsat</div>
         <div class="card-title">Water &amp; Vegetation Health — Dongbei Region, China</div>
-        <div class="card-desc">Landsat-based analysis of water bodies and vegetation health indices across China's Dongbei region, published as an ArcGIS StoryMap.</div>
+        <div class="card-desc">Landsat-based analysis of water bodies and vegetation health indices across China's Dongbei region, published as an interactive ArcGIS StoryMap.</div>
         <div class="card-footer"><span>ArcGIS StoryMap</span><span class="arrow">→</span></div>
       </div>
     </a>
@@ -110,7 +196,7 @@
       <div class="card-body">
         <div class="card-tag">Spatial Analysis · R</div>
         <div class="card-title">Maritime Pirate Attacks — Geospatial Analysis in R</div>
-        <div class="card-desc">Statistical and spatial analysis of maritime piracy incident data in R, identifying global hotspots and temporal attack patterns.</div>
+        <div class="card-desc">Statistical and spatial analysis of global maritime piracy incident data in R, identifying attack hotspots and temporal patterns.</div>
         <div class="card-footer"><span>GitHub</span><span class="arrow">→</span></div>
       </div>
     </a>
@@ -118,20 +204,220 @@
   </div>
 </section>
 
+<!-- ── Skills ── -->
 <section class="section" id="skills" style="padding-top:0">
   <div class="section-header"><h2>Skills &amp; Tools</h2><div class="line"></div></div>
   <div class="skills-grid">
-    <span class="pill">ArcGIS Pro</span><span class="pill">ArcGIS StoryMaps</span>
-    <span class="pill">QGIS</span><span class="pill">Remote Sensing</span>
-    <span class="pill">Landsat Imagery</span><span class="pill">OSINT</span>
-    <span class="pill">R (Spatial Analysis)</span><span class="pill">Python / GeoPandas</span>
-    <span class="pill">Spatial Statistics</span><span class="pill">Cartography</span>
-    <span class="pill">GPS / Field Data</span><span class="pill">GitHub Pages</span>
+    <span class="pill">ArcGIS Pro</span>
+    <span class="pill">QGIS</span>
+    <span class="pill">Google Earth Engine</span>
+    <span class="pill">Remote Sensing</span>
+    <span class="pill">Landsat Imagery</span>
+    <span class="pill">OSINT</span>
+    <span class="pill">GEOINT</span>
+    <span class="pill">Python</span>
+    <span class="pill">R (Spatial Analysis)</span>
+    <span class="pill">SQL</span>
+    <span class="pill">AI / Machine Learning</span>
+    <span class="pill">Drone Operations</span>
+    <span class="pill">Spatial Statistics</span>
+    <span class="pill">Cartography</span>
+    <span class="pill">Mandarin Chinese</span>
+    <span class="pill">Analytical Writing</span>
   </div>
 </section>
 
+<!-- ── Resume ── -->
+<section class="section" id="resume" style="padding-top:0">
+  <div class="section-header"><h2>Resume</h2><div class="line"></div></div>
+
+  <div class="resume-wrap">
+    <!-- Toggle header -->
+    <div class="resume-toggle" onclick="toggleResume()">
+      <div class="resume-toggle-left">
+        <h3>Joel Elijah Manwill</h3>
+        <span class="badge">GIS Analyst</span>
+      </div>
+      <span class="chevron" id="chevron">▼</span>
+    </div>
+
+    <!-- Resume body -->
+    <div class="resume-body open" id="resumeBody">
+      <div class="resume-inner">
+
+        <!-- LEFT COLUMN: Main content -->
+        <div>
+          <div class="resume-name">Joel Elijah Manwill</div>
+          <div class="resume-contact">
+            <span>Logan, UT 84321</span>
+            <span>·</span>
+            <span>(801) 882-9504</span>
+            <span>·</span>
+            <a href="mailto:elijahmanwillmeng@gmail.com">elijahmanwillmeng@gmail.com</a>
+            <span>·</span>
+            <a href="https://github.com/JoelElijahManwill" target="_blank">GitHub</a>
+          </div>
+
+          <!-- Summary -->
+          <div class="resume-section">
+            <div class="resume-section-title">Professional Summary</div>
+            <p class="resume-summary">Geographic analyst with experience in GEOINT, GIS, remote sensing, and data science supporting national security and scientific research. Skilled in analytical writing, spatial analysis, and open-source intelligence. Proficient in leveraging technology and automation for mission-critical analysis and problem-solving in government and research environments.</p>
+          </div>
+
+          <!-- Experience -->
+          <div class="resume-section">
+            <div class="resume-section-title">Work Experience</div>
+
+            <div class="job">
+              <div class="job-header">
+                <span class="job-title">GIS Analyst Assistant / Rangeland Ecology Lab Technician</span>
+                <span class="job-date">Nov 2024 – Present</span>
+              </div>
+              <div class="job-org">U.S. Department of Agriculture, Agricultural Research Service · Logan, UT · 20 hrs/week</div>
+              <div class="job-desc">Process drone and satellite imagery using GIS and remote sensing software to extract spatial data including NDVI, hydrology mapping, and zonal statistics. Train AI computer vision models for rangeland plant identification. Operate drones for geospatial data collection. Support scientific research through spatial analysis, data processing, and technical documentation.</div>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <span class="job-title">Climate Adaptation Research Intern</span>
+                <span class="job-date">Aug – Dec 2025</span>
+              </div>
+              <div class="job-org">Utah State University Climate Adaptation Internship Program · Logan, UT · 15 hrs/week</div>
+              <div class="job-desc">Authored technical fact sheet on aquatic resource management and water quality data collection methods. Evaluated data sources from stream gauges to satellite imagery. Developed strategies for improving environmental monitoring and synthesized complex scientific information for technical and non-technical audiences.</div>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <span class="job-title">Summer Internship Program Intern (GIS Analyst)</span>
+                <span class="job-date">Selected Dec 2023 – May 2025</span>
+              </div>
+              <div class="job-org">National Geospatial-Intelligence Agency · Springfield, VA · 40 hrs/week (position offered; program cancelled prior to start)</div>
+              <div class="job-desc">Selected for competitive 2025 Summer Internship Program as GIS analyst. Completed full background investigation and obtained TS Eligible security clearance. Program cancelled three weeks before start date due to government efficiency initiatives.</div>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <span class="job-title">Dispatcher / Fingerprint Technician</span>
+                <span class="job-date">Dec 2023 – May 2025</span>
+              </div>
+              <div class="job-org">Utah State University Department of Public Safety · Logan, UT · 20 hrs/week</div>
+              <div class="job-desc">Managed emergency communications, dispatching security, police, fire, and emergency response units. Processed fingerprint records and maintained sensitive personnel data in accordance with security protocols.</div>
+            </div>
+          </div>
+
+          <!-- Selected Projects -->
+          <div class="resume-section">
+            <div class="resume-section-title">Selected Research &amp; Projects</div>
+
+            <div class="project-item">
+              <div class="project-item-title">OSINT Analysis: Chinese Military Food Security</div>
+              <div class="project-item-desc">Conducted OSINT research analyzing potential indicators of Taiwan invasion preparation. Presented findings to Center for Anticipatory Intelligence Research Symposium and Army OSINT officials (April 2025).</div>
+            </div>
+            <div class="project-item">
+              <div class="project-item-title">AI Computer Vision for Vegetation Health Monitoring</div>
+              <div class="project-item-desc">Developed machine learning model to identify vegetation indicators from drone and satellite imagery for USDA-ARS research publication.</div>
+            </div>
+            <div class="project-item">
+              <div class="project-item-title">GIS Accessibility Tool Development</div>
+              <div class="project-item-desc">Built spatial analysis tool using local GIS layers to assess bicycle infrastructure comfort and accessibility. Presented at Utah Geographic Information Council Annual Meeting (May 2025).</div>
+            </div>
+            <div class="project-item">
+              <div class="project-item-title">Senior Research Paper: Deepfake Geography Threats</div>
+              <div class="project-item-desc">Analyzed risks of synthetic geospatial content undermining crisis response and situational awareness in emergency operations.</div>
+            </div>
+            <div class="project-item">
+              <div class="project-item-title">Security Threat Analysis: Jerusalem Old City</div>
+              <div class="project-item-desc">Conducted comprehensive threat assessment of security infrastructure and vulnerabilities.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Sidebar -->
+        <div class="resume-sidebar">
+
+          <!-- Clearance -->
+          <div class="resume-clearance">
+            <div class="cl-label">Security Clearance</div>
+            <div class="cl-value">Top Secret Eligible</div>
+            <div class="cl-date">March – May 2025</div>
+          </div>
+
+          <!-- Education -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">Education</div>
+            <div class="edu-degree">B.S. Geography — GIS/Remote Sensing</div>
+            <div class="edu-school">Utah State University, Logan, UT</div>
+            <div class="edu-detail">
+              Minor: Center for Anticipatory Intelligence<br>
+              Expected Graduation: April 2026 · GPA: 3.24<br><br>
+              <strong style="color:var(--text);font-size:.79rem;">Relevant Coursework:</strong><br>
+              OSINT Research Practicum (Chinese Security Affairs), Advanced GIS, GIS Programming, Applied Remote Sensing, American National Security Framework, Threats and Resilience, Political Geography, Advanced Chinese Language
+            </div>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="sidebar-section">
+            <div class="sidebar-title">GIS &amp; Geospatial</div>
+            <div class="sidebar-pills">
+              <span class="sidebar-pill">ArcGIS Pro</span>
+              <span class="sidebar-pill">QGIS</span>
+              <span class="sidebar-pill">Google Earth Engine</span>
+              <span class="sidebar-pill">Spatial Statistics</span>
+              <span class="sidebar-pill">Remote Sensing</span>
+              <span class="sidebar-pill">Drone Operations</span>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-title">Programming &amp; Data</div>
+            <div class="sidebar-pills">
+              <span class="sidebar-pill">Python</span>
+              <span class="sidebar-pill">R</span>
+              <span class="sidebar-pill">SQL</span>
+              <span class="sidebar-pill">AI/ML Integration</span>
+              <span class="sidebar-pill">Automation</span>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-title">Analysis &amp; Communication</div>
+            <div class="sidebar-pills">
+              <span class="sidebar-pill">GEOINT</span>
+              <span class="sidebar-pill">OSINT</span>
+              <span class="sidebar-pill">Analytical Writing</span>
+              <span class="sidebar-pill">BLUF Briefs</span>
+              <span class="sidebar-pill">Data Visualization</span>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-title">Languages</div>
+            <div class="sidebar-pills">
+              <span class="sidebar-pill">English (Native)</span>
+              <span class="sidebar-pill">Mandarin Chinese (Fluent)</span>
+              <span class="sidebar-pill">Spanish (Basic)</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /resume-body -->
+  </div><!-- /resume-wrap -->
+</section>
+
+<!-- ── Footer ── -->
 <footer>
-  <p>© 2026 Joel Elijah Manwill &nbsp;·&nbsp; <a href="https://github.com/JoelElijahManwill">GitHub</a></p>
+  <p>© 2026 Joel Elijah Manwill &nbsp;·&nbsp; <a href="https://github.com/JoelElijahManwill" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="mailto:elijahmanwillmeng@gmail.com">elijahmanwillmeng@gmail.com</a></p>
 </footer>
+
+<script>
+  function toggleResume() {
+    const body = document.getElementById('resumeBody');
+    const chevron = document.getElementById('chevron');
+    body.classList.toggle('open');
+    chevron.classList.toggle('open');
+  }
+</script>
+
 </body>
 </html>
