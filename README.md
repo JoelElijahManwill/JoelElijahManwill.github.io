@@ -10,9 +10,10 @@
 
 ![ACCESS Bicycle Project](images/ACCESS_bike.png)
 
-- [Water and Vegetation Health in China's Dongbei Region](https://github.com/JoelElijahManwill/Water-Vegetation-Health-Dongbei-China)
+- [Water and Vegetation Health in China's Dongbei Region](https://arcg.is/1jfKH93)
 
-![Water and Vegetation in Dongbei Region Project](images/storymap_qr_code.png)
+![Water and Vegetation in Dongbei Region Project](images/dongbei_landsat_tile.png)
+![QR Code Link to View Storymap](images/storymap_qr_code.png)
 
 - [Maritime Pirate Attacks Using Geospatial Analysis in R](https://github.com/JoelElijahManwill/Maritime-Pirate-Attacks-Geospatial-Analysis)
 
