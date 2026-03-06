@@ -138,6 +138,7 @@
     <span class="logo">Joel Elijah <span>Manwill</span></span>
     <nav>
       <a href="#projects">Projects</a>
+      <a href="#osint-paper">Paper</a>
       <a href="#skills">Skills</a>
       <a href="#resume">Resume</a>
       <a href="https://github.com/JoelElijahManwill" target="_blank">GitHub</a>
@@ -209,6 +210,72 @@
       </div>
     </a>
 
+  </div>
+</section>
+
+<!-- ── OSINT Paper Viewer ── -->
+<section class="section" id="osint-paper" style="padding-top:0">
+  <div class="section-header"><h2>Featured Paper</h2><div class="line"></div></div>
+
+  <div class="resume-wrap">
+    <div class="resume-toggle" onclick="togglePaper()">
+      <div class="resume-toggle-left">
+        <h3>Conflict Starts with Food Trucks, Not A Bang</h3>
+        <span class="badge">OSINT · Remote Sensing</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:.75rem;">
+        <a href="files/Conflict_Starts_with_Food_Trucks.pdf" download onclick="event.stopPropagation()"
+           style="display:inline-flex;align-items:center;gap:.35rem;background:rgba(63,185,80,.12);border:1px solid rgba(63,185,80,.3);color:var(--accent);padding:.3rem .8rem;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;transition:background .2s;"
+           onmouseover="this.style.background='rgba(63,185,80,.22)'" onmouseout="this.style.background='rgba(63,185,80,.12)'">
+          ⬇ PDF
+        </a>
+        <span class="chevron" id="paperChevron">▼</span>
+      </div>
+    </div>
+
+    <div class="resume-body open" id="paperBody">
+      <!-- Abstract strip -->
+      <div style="padding:1.25rem 1.75rem; border-bottom:1px solid var(--border); display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+        <div>
+          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700;margin-bottom:.35rem;">Authors</div>
+          <div style="font-size:.85rem;color:var(--text);">Seth Stock &amp; Elijah Manwill</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700;margin-bottom:.35rem;">Course</div>
+          <div style="font-size:.85rem;color:var(--text);">OSINT Chinese Strategic Warning Practicum</div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700;margin-bottom:.35rem;">Presented</div>
+          <div style="font-size:.85rem;color:var(--text);">April 25, 2025 · USU Center for Anticipatory Intelligence</div>
+        </div>
+      </div>
+
+      <!-- Abstract text -->
+      <div style="padding:1.25rem 1.75rem; border-bottom:1px solid var(--border); background:rgba(88,166,255,.04);">
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent2);font-weight:700;margin-bottom:.6rem;">Abstract</div>
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.7;max-width:860px;">
+          This paper proposes an advanced remote sensing method and automated model pipeline for tracking PLA MRE (Meals Ready to Eat) supply chain activity as a strategic warning indicator for potential military action against Taiwan. Using NDVI/NPP analysis for long-term food security trends and a custom Sentinel-2 truck detection pipeline with CNN validation, the authors tracked Chinese MRE logistics from 2019–2025. Key findings include a 17% increase in agricultural biomass production since 2010 and a significant 2025 shift in supply-chain activity toward PLA Joint Logistics Support Force facilities in Fujian Province — mirroring patterns observed in Russia approximately 1–2 years before the invasion of Ukraine.
+        </p>
+      </div>
+
+      <!-- PDF embed -->
+      <div style="padding:1.25rem 1.75rem 1.5rem;">
+        <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:.75rem;">Full Paper</div>
+        <div style="border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface2);">
+          <iframe
+            src="files/Conflict_Starts_with_Food_Trucks.pdf"
+            width="100%"
+            height="780"
+            style="display:block;border:none;"
+            title="Conflict Starts with Food Trucks, Not A Bang">
+            <div style="padding:2rem;text-align:center;color:var(--muted);">
+              Your browser doesn't support embedded PDFs.
+              <a href="files/Conflict_Starts_with_Food_Trucks.pdf" style="color:var(--accent2);margin-left:.5rem;">Download the paper instead →</a>
+            </div>
+          </iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -426,6 +493,12 @@
 </footer>
 
 <script>
+  function togglePaper() {
+    const body = document.getElementById('paperBody');
+    const chevron = document.getElementById('paperChevron');
+    body.classList.toggle('open');
+    chevron.classList.toggle('open');
+  }
   function toggleResume() {
     const body = document.getElementById('resumeBody');
     const chevron = document.getElementById('chevron');
